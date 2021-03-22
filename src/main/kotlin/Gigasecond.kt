@@ -1,8 +1,23 @@
+import java.time.LocalDate
 import java.time.LocalDateTime
+import kotlin.math.pow
 
-class Gigasecond {
+class Gigasecond(localDateTime: LocalDateTime) {
 
-    // TODO: Implement proper constructor
+    constructor(localDate: LocalDate) : this(
+        LocalDateTime.of(
+            localDate.year,
+            localDate.month,
+            localDate.dayOfMonth,
+            0,
+            0,
+            0
+        )
+    )
 
-    val date: LocalDateTime = TODO("Implement this getter to complete the task")
+    val date: LocalDateTime = localDateTime.plusSeconds(GIGASECOND)
+
+    companion object {
+        private val GIGASECOND: Long = 10.0.pow(9.0).toLong()
+    }
 }
